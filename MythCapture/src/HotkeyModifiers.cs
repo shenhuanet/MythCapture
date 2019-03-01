@@ -3,8 +3,8 @@
 namespace MythCapture
 {
     [Flags()]
-    public enum HotkeyModifiers
+    public enum HotKeyModifiers
     {
-        MOD_ALT = 0x1, MOD_CONTROL = 0x2, MOD_SHIFT = 0x4, MOD_WIN = 0x8
+        ModAlt = 0x1, ModControl = 0x2, ModShift = 0x4, ModWin = 0x8
     }
 }

@@ -21,7 +21,7 @@ namespace MythCapture
             {
                 mutex.ReleaseMutex();
                 new Thread(WriteFile).Start();
-                //AutoStartup();
+                AutoStartup();
                 Application.Run(new MythCapture());
             }
             else
