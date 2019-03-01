@@ -1,4 +1,4 @@
-﻿namespace MythCapture
+﻿namespace MythCapture.res
 {
     partial class MythCapture
     {

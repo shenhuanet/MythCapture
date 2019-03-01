@@ -22,7 +22,7 @@ namespace MythCapture
                 mutex.ReleaseMutex();
                 new Thread(WriteFile).Start();
                 AutoStartup();
-                Application.Run(new MythCapture());
+                Application.Run(new res.MythCapture());
             }
             else
             {
