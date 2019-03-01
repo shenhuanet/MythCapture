@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\HotKeyHelper.cs" />
-    <Compile Include="src\HotkeyModifiers.cs" />
+    <Compile Include="src\HotKeyModifiers.cs" />
     <Compile Include="res\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +126,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="res\screenshot.png" />
     <None Include="bin\Debug\PrScrn.dll" />
     <None Include="Resources\PrScrn.dll" />
     <Content Include="res\icon.ico" />

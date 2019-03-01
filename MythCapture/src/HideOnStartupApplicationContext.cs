@@ -2,13 +2,13 @@
 
 namespace MythCapture
 {
-    class HideOnStartupApplicationContext: ApplicationContext
+    internal class HideOnStartupApplicationContext: ApplicationContext
     {
-        public HideOnStartupApplicationContext(MythCapture form) {
+        public HideOnStartupApplicationContext(Form form) {
             form.FormClosed += new FormClosedEventHandler(MainFrom_FormClosed);
         }
 
-        void MainFrom_FormClosed(object sender,FormClosedEventArgs args) {
+        protected virtual void MainFrom_FormClosed(object sender,FormClosedEventArgs args) {
             Application.Exit();
         }
     }

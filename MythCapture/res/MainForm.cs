@@ -45,14 +45,14 @@ namespace MythCapture
         /// </summary>
         private void RegisterHotKey()
         {
-            HotkeyModifiers hm = HotkeyModifiers.MOD_CONTROL | HotkeyModifiers.MOD_ALT;
+            HotKeyModifiers hm = HotKeyModifiers.ModControl | HotKeyModifiers.ModAlt;
             bool success = HotKeyHelper.RegisterHotKey(this.Handle, 0, hm, Keys.A);
             Console.WriteLine("--热键注册：" + success);
             if (!success)
             {
                 MessageBox.Show("神话快捷截图，热键 Ctrl + Alt + A 已被其它程序占用\n使用替代方案 Alt + A",
                     Resources.app_name, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                bool success2 = HotKeyHelper.RegisterHotKey(this.Handle, 0, HotkeyModifiers.MOD_ALT, Keys.A);
+                bool success2 = HotKeyHelper.RegisterHotKey(this.Handle, 0, HotKeyModifiers.ModAlt, Keys.A);
                 if (!success2)
                 {
                     DialogResult result = MessageBox.Show("神话快捷截图，热键 Alt + A 已被其它程序占用，程序将退出",

@@ -7,13 +7,13 @@ using System.IO;
 
 namespace MythCapture
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("--程序已启动");
             var mutex = new Mutex(true, Resources.app_name);
@@ -21,7 +21,7 @@ namespace MythCapture
             {
                 mutex.ReleaseMutex();
                 new Thread(WriteFile).Start();
-                AutoStartup();
+                //AutoStartup();
                 Application.Run(new MythCapture());
             }
             else
@@ -33,9 +33,9 @@ namespace MythCapture
 
         private static void WriteFile()
         {
-            byte[] dll = Resources.PrScrn;
-            string path = Application.StartupPath + @"\PrScrn.dll";
-            using (FileStream fs = new FileStream(path, FileMode.Create))
+            var dll = Resources.PrScrn;
+            var path = Application.StartupPath + @"\PrScrn.dll";
+            using (var fs = new FileStream(path, FileMode.Create))
             {
                 fs.Write(dll, 0, dll.Length);
             }
@@ -47,11 +47,9 @@ namespace MythCapture
         private static void AutoStartup()
         {
             var rk = Registry.LocalMachine.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
-            if (rk.GetValue("MythCapture") == null)
-            {
-                rk.SetValue("MythCapture", Application.ExecutablePath);
-                rk.Close();
-            }
+            if (rk?.GetValue("MythCapture") != null) return;
+            rk?.SetValue("MythCapture", Application.ExecutablePath);
+            rk?.Close();
             Console.WriteLine("--已设置开机自启");
         }
     }
